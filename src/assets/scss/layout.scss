@@ -1,0 +1,497 @@
+:root {
+  font-size: 62.5%;
+  --primaryColor: #111111;
+  --activeColor: #fdbb2e;
+}
+
+@import "../scss/base/_variables";
+@import "../scss/base/_mixins";
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  height: -webkit-fill-available;
+  overflow-x: hidden;
+}
+
+body {
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background: var(--primaryColor);
+  color: var(--primaryColor);
+  font-size: 1.6rem;
+  font-family: "Titillium Web", sans-serif;
+  height: -webkit-fill-available;
+  overflow-x: hidden;
+}
+
+a {
+  text-decoration: unset;
+  color: var(--primaryColor);
+}
+
+.app-wrapper {
+  width: 100%;
+  margin: 0 auto;
+  background: var(--activeColor);
+  height: 100%;
+}
+
+.header__section {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  width: 100%;
+  height: 8rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 2rem;
+  background: white;
+}
+
+.my__name {
+  display: flex;
+  align-items: center;
+  font-size: 2.5rem;
+  svg {
+    width: 5rem;
+    height: 5rem;
+  }
+}
+
+.main__sections {
+  height: 100%;
+  margin: 0 auto;
+}
+
+.section {
+  max-width: 96rem;
+  margin: 0 auto;
+  padding: 2rem;
+  height: 100vh;
+  padding-top: 8rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  @include mq($phone) {
+    height: 100%;
+    justify-content: inherit;
+  }
+}
+
+.about-me__content {
+  display: flex;
+  @include mq($phone) {
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+  }
+}
+
+.about__me-section {
+  h1 {
+    font-size: 7.2rem;
+    font-weight: bold;
+    line-height: 7.2rem;
+    margin: 1rem 0;
+    letter-spacing: 1px;
+    @include mq($tablets) {
+      font-size: 4.2rem;
+      line-height: 4.2rem;
+    }
+  }
+  h3 {
+    font-size: 1.4rem;
+    margin: 0;
+    position: relative;
+    margin-left: 10rem;
+    letter-spacing: 1px;
+    @include mq($phone) {
+      margin: 0 auto;
+    }
+    &:before {
+      content: "";
+      height: 1px;
+      background: var(--primaryColor);
+      width: 9rem;
+      display: flex;
+      position: absolute;
+      left: -10rem;
+      top: 50%;
+      @include mq($phone) {
+        display: none;
+      }
+    }
+  }
+}
+
+.about__me {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.photo {
+  display: flex;
+  img {
+    object-fit: cover;
+    @include mq($tablets) {
+      object-fit: contain;
+    }
+  }
+}
+
+.about-me__info {
+  display: flex;
+  @include mq($phone) {
+    justify-content: center;
+    margin-top: 3rem;
+  }
+
+  .info {
+    display: flex;
+    flex-direction: column;
+    margin-right: 5rem;
+  }
+
+  .placeholder {
+    color: #fff;
+  }
+}
+
+.skills__section {
+  max-width: 100vw;
+  background: var(--primaryColor);
+  color: #fff;
+
+  h1 {
+    font-size: 7.2rem;
+    font-weight: bold;
+    line-height: 7.2rem;
+    margin: 1rem 0;
+    letter-spacing: 1px;
+    color: var(--activeColor);
+    @include mq($tablets) {
+      font-size: 4.2rem;
+      line-height: 4.2rem;
+    }
+  }
+}
+
+.skills__technologies {
+  margin-top: 5rem;
+  h2 {
+    margin-bottom: 3rem;
+  }
+  @include mq($phone) {
+    margin-top: 0;
+  }
+}
+
+.skills__header {
+  text-align: center;
+  margin-bottom: 5rem;
+  h4 {
+    font-size: 1.4rem;
+    margin: 0;
+  }
+
+  h2 {
+    font-size: 2.6rem;
+    margin: 1rem auto;
+  }
+}
+
+.skills__content {
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 96rem;
+  margin: 0 auto;
+
+  @include mq($smallPhone) {
+    flex-direction: column;
+    max-width: 100%;
+    align-items: center;
+    & > div {
+      width: 90%;
+    }
+  }
+
+  & div {
+    @include mq($smallPhone) {
+      &:nth-child(odd) {
+        margin: 0 auto;
+        margin-bottom: 2rem;
+      }
+      &:nth-child(even) {
+        margin: 0 auto;
+        margin-bottom: 2rem;
+      }
+    }
+  }
+
+  svg {
+    height: 4rem;
+    width: 4rem;
+  }
+}
+
+.education__content {
+  display: flex;
+  max-width: 96rem;
+  margin: 0 auto;
+  @include mq($phone) {
+    flex-direction: column;
+    max-width: 100%;
+  }
+}
+
+.education__header {
+  text-align: center;
+  margin-bottom: 5rem;
+  h4 {
+    font-size: 1.4rem;
+    margin: 0;
+  }
+
+  h2 {
+    font-size: 2.6rem;
+    margin: 1rem auto;
+  }
+}
+
+.education {
+  margin-right: 4rem;
+  @include mq($phone) {
+    margin-right: 0;
+  }
+}
+
+.projects__section {
+  max-width: 100%;
+  background: var(--primaryColor);
+  padding-bottom: 0;
+  .project__header {
+    text-align: center;
+    margin-bottom: 0;
+    h4 {
+      color: var(--activeColor);
+      font-size: 1.4rem;
+      margin: 0;
+    }
+
+    h2 {
+      color: var(--activeColor);
+      font-size: 2.6rem;
+      margin: 1rem auto;
+    }
+  }
+}
+
+.progress__container {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 auto;
+  justify-content: center;
+  @include mq($phone) {
+    flex-direction: column;
+    & div {
+      width: 100%;
+      margin: 0;
+      margin-bottom: 0.5rem;
+    }
+  }
+}
+
+.projects__content {
+  max-width: 96rem;
+  margin: 0 auto;
+
+  .styles_lightroom__1X2qE {
+    position: fixed;
+    z-index: 100;
+  }
+}
+
+.contact__section {
+  position: relative;
+}
+
+.contact__content {
+  display: flex;
+  @include mq($phone) {
+    flex-direction: column;
+  }
+}
+
+.contact__details,
+.contact__form {
+  width: 100%;
+  p {
+    line-height: 2.5rem;
+  }
+}
+
+.contact__details {
+  padding-right: 2rem;
+  @include mq($phone) {
+    padding-right: 0;
+  }
+}
+
+.contact__form {
+  padding-left: 2rem;
+  @include mq($phone) {
+    padding-left: 0;
+    margin-top: 2rem;
+  }
+}
+
+.form__group {
+  display: flex;
+  flex-direction: column;
+  input {
+    width: 100%;
+    background: transparent;
+    border: unset;
+    border-bottom: solid 2px var(--primaryColor);
+    color: var(--primaryColor);
+    font-size: 1.6rem;
+    height: 4rem;
+    margin-bottom: 2rem;
+    padding: 1rem 0;
+    font-family: "Titillium Web", sans-serif;
+
+    &:focus {
+      outline: unset;
+    }
+  }
+
+  textarea {
+    width: 100%;
+    background: transparent;
+    border: unset;
+    border-bottom: solid 2px var(--primaryColor);
+    padding: 1rem 0;
+    color: var(--primaryColor);
+    font-size: 1.6rem;
+    line-height: 2.2rem;
+    margin-bottom: 2rem;
+    resize: none;
+    font-family: "Titillium Web", sans-serif;
+
+    &:focus {
+      outline: unset;
+    }
+  }
+  label {
+    font-weight: bold;
+  }
+}
+
+.form__cta {
+  display: flex;
+  justify-content: flex-end;
+}
+
+input[type="submit"] {
+  background-color: var(--primaryColor);
+  border: none;
+  color: white;
+  padding: 1.6rem 3.2rem;
+  text-decoration: none;
+  cursor: pointer;
+  border-radius: 5px;
+  font-size: 1.4rem;
+  text-transform: uppercase;
+}
+
+.social__link {
+  display: flex;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  li {
+    list-style-type: none;
+    margin-right: 2rem;
+    svg {
+      width: 2rem;
+      height: 2rem;
+    }
+  }
+}
+
+.copyright {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  text-align: center;
+  @include mq($phone) {
+    position: inherit;
+    margin-top: 4rem;
+  }
+}
+
+.close-menu {
+  position: fixed;
+  top: 1rem;
+  right: 2rem;
+  z-index: 99;
+  svg {
+    width: 2.5rem;
+    height: 2.5rem;
+  }
+}
+
+.burger-menu {
+  position: fixed;
+  top: 1rem;
+  right: 2rem;
+  z-index: 99;
+  svg {
+    width: 2.5rem;
+    height: 2.5rem;
+  }
+}
+
+.mobile--menu {
+  display: flex;
+  flex-direction: column;
+  background: white;
+  height: 100%;
+  padding: 2rem;
+
+  .header__nav {
+    display: flex;
+    flex-direction: column;
+    a {
+      margin: 0;
+      padding: 0.5rem;
+    }
+  }
+}
+
+.mobile__menu {
+  width: 100%;
+  height: 5rem;
+  background: white;
+  position: sticky;
+  top: 0;
+  z-index: 90;
+}
+@media only screen and (max-width: 768px) {
+  .burger-menu {
+    display: block;
+  }
+}
+
+@media only screen and (min-width: 769px) {
+  .close-menu {
+    display: none;
+  }
+}
